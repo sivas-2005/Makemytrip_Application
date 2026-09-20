@@ -1,0 +1,9 @@
+spring.application.name=siva
+server.port=8080
+spring.mongodb.uri=your mongodb url
+spring.mongodb.database=siva
+spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+
+# Copy this file to application.properties and fill in your real MongoDB Atlas
+# connection string in spring.mongodb.uri. application.properties is gitignored
+# so your credentials never get committed.
