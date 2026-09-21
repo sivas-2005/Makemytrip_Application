@@ -58,7 +58,8 @@ const SeatMap = ({
         </div>
       </div>
 
-      <div className="max-h-72 overflow-y-auto border rounded-lg p-4">
+      <div className="max-h-72 overflow-y-auto overflow-x-auto border rounded-lg p-4">
+        <div className="min-w-[280px]">
         {Array.from({ length: totalRows }).map((_, rowIdx) => {
           const rowNum = rowIdx + 1;
           const isPremiumRow = rowNum <= PREMIUM_ROWS;
@@ -99,6 +100,7 @@ const SeatMap = ({
             </div>
           );
         })}
+        </div>
       </div>
 
       <p className="text-xs text-gray-500 mt-2">

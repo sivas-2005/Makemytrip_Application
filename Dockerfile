@@ -22,5 +22,5 @@ COPY --from=build /app/target/siva-0.0.1-SNAPSHOT.jar app.jar
 # Expose the application port
 EXPOSE 8080
 
-# Run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Run the application, honoring the PORT env var that Render injects
+ENTRYPOINT ["sh", "-c", "java -jar app.jar --server.port=${PORT:-8080}"]

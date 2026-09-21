@@ -28,6 +28,10 @@ export default function App(props: AppProps) {
     <Provider store={store}>
       <Head>
         <title>Siva</title>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=5"
+        />
       </Head>
       <Myapp {...props} />
     </Provider>
