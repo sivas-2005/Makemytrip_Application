@@ -261,16 +261,41 @@ export default function Home() {
             </div>
 
             <div className="col-span-1">
-              <SearchInput
-                icon={<Users className="text-gray-400" />}
-                placeholder="Travelers"
-                value={travelers.toString()}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  settravelers(parseInt(e.target.value) || 1)
-                }
-                subtitle="Number of travelers"
-                type="number"
-              />
+              <div className="border rounded-lg p-3 h-full">
+                <div className="flex items-center space-x-2">
+                  <Users className="text-gray-400" />
+                  <div className="flex-1 min-w-0">
+                    <div className="text-sm text-gray-500 truncate">
+                      Travelers
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          settravelers((t) => Math.max(1, t - 1))
+                        }
+                        className="w-6 h-6 flex items-center justify-center rounded-full border border-gray-300 text-gray-600 hover:border-red-500 hover:text-red-500 disabled:opacity-40"
+                        disabled={travelers <= 1}
+                      >
+                        −
+                      </button>
+                      <span className="font-semibold w-4 text-center">
+                        {travelers}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => settravelers((t) => t + 1)}
+                        className="w-6 h-6 flex items-center justify-center rounded-full border border-gray-300 text-gray-600 hover:border-red-500 hover:text-red-500"
+                      >
+                        +
+                      </button>
+                    </div>
+                    <div className="text-xs text-gray-400 truncate">
+                      Number of travelers
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <Button className="col-span-1 h-full" onClick={handlesearch}>
